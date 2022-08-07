@@ -6,7 +6,10 @@
  * Copyright (C) 2020 Raspberry Pi Ltd
  */
 
-/* Repository URL */
+/* RImager Name */
+#define IMAGER_NAME                        "ChillcraftOS Imager"
+
+/* Imager Version */
 #define IMAGER_VERSION                        "Beta"
 
 /* Repository URL */
