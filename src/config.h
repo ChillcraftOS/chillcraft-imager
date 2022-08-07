@@ -6,15 +6,17 @@
  * Copyright (C) 2020 Raspberry Pi Ltd
  */
 
+/* Repository URL */
+#define IMAGER_VERSION                        "Beta"
 
 /* Repository URL */
-#define OSLIST_URL                        "https://downloads.raspberrypi.org/os_list_imagingutility_v3.json"
+#define OSLIST_URL                        "https://apt.oxmchosting.xyz/os_list_imagingutility_v3.json"
 
 /* Time synchronization URL (only used on eglfs QPA platform, URL must be HTTP) */
-#define TIME_URL                          "http://downloads.raspberrypi.org/os_list_imagingutility_v3.json?time_synchronization"
+#define TIME_URL                          "http://apt.oxmchosting.xyz/os_list_imagingutility_v3.json?time_synchronization"
 
 /* Phone home the name of images downloaded for image popularity ranking */
-#define TELEMETRY_URL                     "https://rpi-imager-stats.raspberrypi.com/downloads"
+#define TELEMETRY_URL                     "https://apt.oxmchosting.xyz/telemetry/downloads"
 
 /* Hash algorithm for verifying (uncompressed image) checksum */
 #define OSLIST_HASH_ALGORITHM             QCryptographicHash::Sha256
