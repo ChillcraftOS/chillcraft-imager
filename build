@@ -1,0 +1,5 @@
+#!/bin/bash
+
+debuild -uc -us
+cd ..
+sudo apt install ./chillcraftos-imager*.deb
