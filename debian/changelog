@@ -1,3 +1,9 @@
+chillcraftos-imager (1.7.4) unstable; urgency=medium
+
+  * rename rpi-imager to chillcraftos-imager
+
+ -- Seth Olivarez <oxmc7769@gmail.com>  Sat, 6 Aug 2022 12:15:17 +0200
+
 rpi-imager (1.7.3) unstable; urgency=medium
 
   * Linux: use GnuTLS instead of OpenSSL for computing SHA256
