@@ -85,10 +85,10 @@ int main(int argc, char *argv[])
 #else
     QApplication app(argc, argv);
 #endif
-    app.setOrganizationName("Raspberry Pi");
-    app.setOrganizationDomain("raspberrypi.org");
+    app.setOrganizationName("Chillcraft");
+    app.setOrganizationDomain("chillcraft.hankchill.com");
     app.setApplicationName("Imager");
-    app.setWindowIcon(QIcon(":/icons/rpi-imager.ico"));
+    app.setWindowIcon(QIcon(":/icons/chillcraftos-imager.ico"));
     ImageWriter imageWriter;
     NetworkAccessManagerFactory namf;
     QQmlApplicationEngine engine;
@@ -125,7 +125,7 @@ int main(int argc, char *argv[])
         {
             if (args.size()-i < 2 || args[i+1].startsWith("-"))
             {
-                cerr << "Missing URL after --repo" << endl;
+                cerr << "Missing URL or file path after --repo" << endl;
                 return 1;
             }
 
@@ -199,6 +199,10 @@ int main(int argc, char *argv[])
             settings.remove("telemetry");
             settings.sync();
         }
+        else if (args[i] == "--chillcraft")
+        {
+            cerr << "Yes chill, this was deisgned for you." << endl;
+        }
         else
         {
             cerr << "Ignoring unknown argument: " << args[i] << endl;
@@ -225,7 +229,7 @@ int main(int argc, char *argv[])
         QLocale::setDefault(QLocale(langcode));
 #endif
 
-        if (translator->load(QLocale(), "rpi-imager", "_", QLatin1String(":/i18n")))
+        if (translator->load(QLocale(), "chillcraftos-imager", "_", QLatin1String(":/i18n")))
             imageWriter.replaceTranslator(translator);
         else
             delete translator;
