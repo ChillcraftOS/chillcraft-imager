@@ -2,4 +2,8 @@
 
 debuild -uc -us
 cd ..
-sudo apt install ./chillcraftos-imager*.deb
+mv chillcraftos-imager* chillcraft-imager/out/
+cd chillcraft-imager/out
+sudo apt remove chillcraftos-imager -y
+sudo apt install ./chillcraftos-imager*.deb -y
+cd ..
