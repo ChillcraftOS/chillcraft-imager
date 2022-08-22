@@ -127,6 +127,9 @@ Popup {
                             id: fieldHostname
                             enabled: chkHostname.checked
                             text: "raspberrypi"
+                            /* FIXME: use RegularExpressionValidator instead when moving to newer Qt version.
+                               It is not available in 5.12 that is still being used by Ubuntu 20 LTS though */
+                            validator: RegExpValidator { regExp: /[0-9A-Za-z][0-9A-Za-z-]{0,62}/ }
                         }
                         Text {
                             text : ".local"
@@ -733,7 +736,7 @@ Popup {
             cloudinitnetwork += "wifis:\n"
             cloudinitnetwork += "  renderer: networkd\n"
             cloudinitnetwork += "  wlan0:\n"
-            cloudinitnetwork += "    regulatory-domain: \""+fieldWifiCountry.editText+"\"\n"
+            /*cloudinitnetwork += "    regulatory-domain: \""+fieldWifiCountry.editText+"\"\n"*/
             cloudinitnetwork += "    dhcp4: true\n"
             cloudinitnetwork += "    optional: true\n"
             cloudinitnetwork += "    access-points:\n"
@@ -743,7 +746,9 @@ Popup {
                 cloudinitnetwork += "        hidden: true\n"
             }
 
-            /* legacy */
+            /* FIXME: setting wifi country code broken on Ubuntu
+               For unknown reasons udev does not trigger setregdomain automatically and as a result
+               our setting in /etc/default/crda is being ignored by Ubuntu. */
             addCloudInitRun("sed -i 's/^\s*REGDOMAIN=\S*/REGDOMAIN="+fieldWifiCountry.editText+"/' /etc/default/crda || true")
         }
         if (chkLocale.checked) {

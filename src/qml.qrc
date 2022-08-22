@@ -36,5 +36,7 @@
         <file>qmlcomponents/ImCheckBox.qml</file>
         <file>qmlcomponents/ImRadioButton.qml</file>
         <file>icons/cat_digital_signage.png</file>
+        <file>icons/chill.png</file>
+        <file>icons/ChilldergDeity.png</file>
     </qresource>
 </RCC>

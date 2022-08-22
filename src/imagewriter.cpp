@@ -278,7 +278,7 @@ void ImageWriter::startWrite()
     {
         _thread = new LocalFileExtractThread(urlstr, _dst.toLatin1(), _expectedHash, this);
     }
-    else if (compressed)
+    else
     {
         _thread = new DownloadExtractThread(urlstr, _dst.toLatin1(), _expectedHash, this);
         if (_repo.toString() == OSLIST_URL)
@@ -287,11 +287,6 @@ void ImageWriter::startWrite()
             connect(tele, SIGNAL(finished()), tele, SLOT(deleteLater()));
             tele->start();
         }
-    }
-    else
-    {
-        _thread = new DownloadThread(urlstr, _dst.toLatin1(), _expectedHash, this);
-        _thread->setInputBufferSize(IMAGEWRITER_UNCOMPRESSED_BLOCKSIZE);
     }
 
     connect(_thread, SIGNAL(success()), SLOT(onSuccess()));
